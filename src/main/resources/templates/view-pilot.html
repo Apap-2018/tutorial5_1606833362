@@ -11,24 +11,24 @@
 	<nav th:replace="fragments/fragment :: navbar"></nav>
 	<h2>Hello!</h2>
 	
-	<h3>View Pilot</h3>
-	
-	<h3 th:text="'Pilot License Number: ' + ${pilot.licenseNumber}"></h3>
-	<h3 th:text="'Name: ' + ${pilot.name}"></h3>
-	<h3 th:text="'Fly Hour: ' + ${pilot.flyHour}"></h3>
-	<h3 th:if="${pilot.flyHour} >= 100">Status: Pilot Senior</h3>
-	<h3 th:unless="${pilot.flyHour} >= 100">Status: Pilot Junior</h3>
-	
+	<h3 style="text-align:center">View Pilot</h3>
+	<div class="border border-primary rounded">
+	<h5 style="text-align:center" th:text="'Pilot License Number: ' + ${pilot.licenseNumber}"></h5>
+	<h5 style="text-align:center" th:text="'Name: ' + ${pilot.name}"></h5>
+	<h5 style="text-align:center" th:text="'Fly Hour: ' + ${pilot.flyHour}"></h5>
+	<h5 style="text-align:center" th:if="${pilot.flyHour} >= 100">Status: Pilot Senior</h5>
+	<h5 style="text-align:center" th:unless="${pilot.flyHour} >= 100">Status: Pilot Junior</h5>
+	</div>
 	<form th:action="@{/pilot/update/} + ${pilot.id}">
-		<button type="submit">Update Pilot</button>
+		<button type="submit" class="btn button btn-primary">Update Pilot</button>
 	</form>
-	
+	<br>
 	<form th:action="@{/pilot/delete/} + ${pilot.id}">
-		<button type="submit">Delete Pilot</button>
+		<button type="submit" class="btn button btn-primary">Delete Pilot</button>
 	</form>
- 	
+	<br><br>
  	<form th:action="@{/flight/delete}" th:object="${pilot}" method="POST">
- 		<table border="I">
+ 		<table border="I" align= "center">
  			<caption>Flights</caption>
  			<thead>
  				<tr>
@@ -54,11 +54,12 @@
  				</tr>
  			</tbody>
  		</table>
- 		<button type="submit">Delete Selected Flight</button>
+ 		<br>
+ 		<button type="submit" class="btn button btn-primary">Delete Selected Flight</button>
 	</form>
     <br>
     <form th:action="@{/flight/add/} + ${pilot.licenseNumber}">
-    	<button value="submit" class="btn button btn-warning">Add Flight</button>
+    	<button value="submit" class="btn button btn-primary">Add Flight</button>
     </form> 
 </body>
 </html>
