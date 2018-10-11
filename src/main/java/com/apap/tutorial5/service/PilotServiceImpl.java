@@ -40,10 +40,5 @@ public class PilotServiceImpl implements PilotService{
 		pilotDB.save(pilotUp);
 	}
 	
-	@Override
-	public List<PilotModel> getPilotFlight() {
-		return pilotDB.findAll();
-	}
-	
 
 }

@@ -10,5 +10,5 @@ public interface PilotService {
 	void addPilot(PilotModel pilot);
 	void deletePilot(PilotModel pilot);
 	void updatePilot (PilotModel pilot, String licenseNumber);
-	List<PilotModel> getPilotFlight();
+
 }
